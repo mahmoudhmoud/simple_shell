@@ -1,4 +1,4 @@
-#include "main.h"
+#include "simpleShell.h"
 
 /**
  * str_tokeniz - is the function dyalo

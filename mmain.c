@@ -1,4 +1,4 @@
-#include "main.h"
+#include "simpleShell.h"
 
 /**
  * main - is the main function
