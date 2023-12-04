@@ -1,15 +1,14 @@
 #include "simpleShell.h"
 
 /**
- * str_tokeniz - is the function dyalo
- * @line: is for daklchi
+ * str_tokeniz -  the function to split a given line
+ * @line: line to be split
  *
- * Return: walo
+ * Return: array of strings
  */
-	char **str_tokeniz(char *line)
+char **str_tokeniz(char *line)
 {
-
-	char *token;
+	char *token = NULL;
 	char *line_copy = NULL;
 	const char *delim = " \n\t";
 	int n_tok = 0;
@@ -21,32 +20,29 @@
 	token = strtok(line_copy, delim);
 	if (token == NULL)
 	{
-	free(line_copy);
-	free(line);
-	return (NULL);
+		free(line_copy);
+		return (NULL);
 	}
 	while (token != NULL)
 	{
-	n_tok++;
-	token = strtok(NULL, delim);
+		n_tok++;
+		token = strtok(NULL, delim);
 	}
-	free(line_copy); /*freed the line_copy bc i only used it to count tokens*/
 
-	comd = malloc(sizeof(char *) * n_tok);
+	comd = malloc(sizeof(char *) * (n_tok + 1));
 	if (comd == NULL)
 	{
-	free(line);
-	return (NULL);
+		free(line_copy);
+		return (NULL);
 	}
 	token = strtok(line, delim);
 	for (k = 0; token != NULL; k++)
 	{
-	comd[k] = strdup(token);
-	token = strtok(NULL, delim);
+		comd[k] = strdup(token);
+		token = strtok(NULL, delim);
 	}
 	comd[k] = NULL;
-	free(line);
+	free(line_copy);
 
 	return (comd);
 }
-

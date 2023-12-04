@@ -8,5 +8,6 @@
 #include <unistd.h>
 
 char **str_tokeniz(char *line);
+void prompt(void);
 
 #endif
