@@ -33,7 +33,10 @@ int main(int ac, char **argv)
 
 		commands = str_tokeniz(ptrline);
 		if (!commands)
+		{
+			free(ptrline);
 			continue;
+		}
 
 		status = exe_comd(commands, argv);
 
@@ -41,4 +44,3 @@ int main(int ac, char **argv)
 	free(ptrline);
 	return (0);
 }
-
