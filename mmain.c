@@ -15,10 +15,9 @@ int main(int ac, char **argv)
 	ssize_t r;
 	size_t size = 0;
 	char **commands;
-	int j;
+	int status = 0;
 
 	(void)ac;
-	(void)argv;
 
 
 	while (1)
@@ -29,19 +28,15 @@ int main(int ac, char **argv)
 		if (r == -1)
 		{
 			free(ptrline);
-			return (-1);
+			return (status);
 		}
 
 		commands = str_tokeniz(ptrline);
 		if (!commands)
 			continue;
 
-		for (j = 0; commands[j] != NULL; j++)
-		{
-			printf("%s\n", commands[j]);
-			free(commands[j]);
-		}
-		free(commands);
+		status = exe_comd(commands, argv);
+
 	}
 	free(ptrline);
 	return (0);
