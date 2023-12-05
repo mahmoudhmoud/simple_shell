@@ -7,7 +7,6 @@
  *
  * Return: status
  */
-
 int exe_comd(char **comd, char **argv)
 {
 

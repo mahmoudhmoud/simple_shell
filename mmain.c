@@ -5,7 +5,7 @@
  * @ac: is use for dakchi
  * @argv: is use for hadakchi
  *
- * Return: walo
+ * Return: wallo
  */
 
 int main(int ac, char **argv)

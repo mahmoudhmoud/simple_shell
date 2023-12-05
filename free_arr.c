@@ -6,6 +6,7 @@
  *
  * Return: nothing
  */
+
 void free_arr(char **array)
 {
 	int j;
