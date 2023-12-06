@@ -20,7 +20,6 @@ int exe_comd(char **comd, char **argv)
 		{
 			perror(argv[0]);
 			free_arr(comd);
-			free(argv);
 			exit(127);
 		}
 	}
