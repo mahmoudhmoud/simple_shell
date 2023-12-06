@@ -28,6 +28,7 @@ int main(int ac, char **argv)
 		if (r == -1)
 		{
 			free(ptrline);
+			ptrline = NULL;
 			return (status);
 		}
 
@@ -35,12 +36,17 @@ int main(int ac, char **argv)
 		if (!commands)
 		{
 			free(ptrline);
+			ptrline = NULL;
 			continue;
 		}
 
 		status = exe_comd(commands, argv);
 
-	}
+
 	free(ptrline);
+	ptrline = NULL;
+	}
+
 	return (0);
 }
+
