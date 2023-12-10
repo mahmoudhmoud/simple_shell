@@ -15,3 +15,4 @@ void command_err(char **command, char **argv, int count)
 
 	fprintf(stderr, "%s: %d: %s: not found\n", argv[0], count, command[0]);
 }
+
