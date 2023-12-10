@@ -16,13 +16,13 @@ int main(int ac, char **argv)
 	size_t size = 0;
 	char **commands;
 	int status = 0;
+	int child_cnt = 0;
 
 	(void)ac;
 
-
 	while (1)
 	{
-
+		child_cnt++;
 		prompt();
 		r = getline(&ptrline, &size, stdin);
 		if (r == -1)
@@ -40,7 +40,7 @@ int main(int ac, char **argv)
 			continue;
 		}
 
-		status = exe_comd(commands, argv);
+		status = exe_comd(commands, argv, child_cnt);
 
 
 	free(ptrline);
