@@ -24,3 +24,4 @@ char *_strcat(char *dest, char *src);
 
 void command_err(char **command, char **argv, int count);
 #endif
+
