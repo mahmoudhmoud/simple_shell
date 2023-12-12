@@ -61,3 +61,47 @@ char *_strcat(char *dest, char *src)
 	dest[i] = '\0';
 	return (dest);
 }
+
+/**
+ * _strcmp - compare two strings
+ * @s1: one string
+ * @s2: one string
+ * Return: int that tells num spaces in between
+ */
+
+int _strcmp(char *s1, char *s2)
+{
+	while (*s1 != '\0' || *s2 != '\0')
+	{
+		if (*s1 != *s2)
+			return (*s1 - *s2);
+		s1++;
+		s2++;
+	}
+	return (0);
+}
+
+/**
+ * _atoi - convert a string to an integer
+ * @s: pointer for string
+ * Return: integer value of the converted string
+ */
+
+int _atoi(char *s)
+{
+	int sign = 1;
+	unsigned int n = 0;
+
+	do {
+		if (*s == '-')
+			sign *= -1;
+
+		else if (*s >= '0' && *s <= '9')
+			n = (n * 10) + (*s - '0');
+
+		else if (n > 0)
+			break;
+	} while (*s++);
+
+	return (n * sign);
+}

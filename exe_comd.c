@@ -31,7 +31,6 @@ int exe_comd(char **comd, char **argv, int child_cnt)
 		{
 			free_arr(comd);
 			free(r_command);
-			exit(127);
 		}
 	}
 	else
@@ -39,7 +38,9 @@ int exe_comd(char **comd, char **argv, int child_cnt)
 		waitpid(pid_child, &status, 0);
 		free_arr(comd);
 		free(r_command);
+		if (WIFEXITED(status))
+			return (WEXITSTATUS(status));
 	}
 
-	return (WEXITSTATUS(status));
+	return (0);
 }

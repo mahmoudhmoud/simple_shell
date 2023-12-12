@@ -4,10 +4,8 @@
  * main - is the main function
  * @ac: is use for dakchi
  * @argv: is use for hadakchi
- *
  * Return: wallo
  */
-
 int main(int ac, char **argv)
 {
 
@@ -15,8 +13,7 @@ int main(int ac, char **argv)
 	ssize_t r;
 	size_t size = 0;
 	char **commands;
-	int status = 0;
-	int child_cnt = 0;
+	int status = 0, child_cnt = 0;
 
 	(void)ac;
 
@@ -28,7 +25,6 @@ int main(int ac, char **argv)
 		if (r == -1)
 		{
 			free(ptrline);
-			ptrline = NULL;
 			return (status);
 		}
 
@@ -40,13 +36,17 @@ int main(int ac, char **argv)
 			continue;
 		}
 
-		status = exe_comd(commands, argv, child_cnt);
+		if (command_builtin(commands))
+		{
+			free(ptrline);
+			exe_builtin(commands, argv);
+		}
+		else
+			status = exe_comd(commands, argv, child_cnt);
 
-
-	free(ptrline);
-	ptrline = NULL;
+		free(ptrline);
+		ptrline = NULL;
 	}
-
 	return (0);
 }
 
