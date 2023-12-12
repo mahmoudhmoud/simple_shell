@@ -50,3 +50,4 @@ char *locate_path(char *command)
 	free(copy_of_path);
 	return (NULL);
 }
+

@@ -86,7 +86,6 @@ int _strcmp(char *s1, char *s2)
  * @s: pointer for string
  * Return: integer value of the converted string
  */
-
 int _atoi(char *s)
 {
 	int sign = 1;
